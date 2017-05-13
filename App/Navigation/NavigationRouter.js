@@ -3,7 +3,6 @@ import { Scene, Router } from 'react-native-router-flux'
 import Styles from './Styles/NavigationContainerStyles'
 import NavigationDrawer from './NavigationDrawer'
 import NavItems from './NavItems'
-import CustomNavBar from '../Navigation/CustomNavBar'
 import TGWelcomeScreen from '../Containers/TGWelcomeScreen'
 
 // screens identified by the router
@@ -20,7 +19,7 @@ class NavigationRouter extends Component {
         <Scene key='drawer' component={NavigationDrawer} open={false}>
           <Scene key='drawerChildrenWrapper' navigationBarStyle={Styles.navBar} titleStyle={Styles.title} leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
             <Scene key='launchScreen' component={LaunchScreen} title='LaunchScreen' />
-            <Scene initial key='welcomeScreen' component={TGWelcomeScreen} title='Welcome' renderLeftButton={NavItems.hamburgerButton} type="reset"/>
+            <Scene initial key='welcomeScreen' component={TGWelcomeScreen} title='Welcome' renderLeftButton={NavItems.hamburgerButton} type='reset' />
           </Scene>
         </Scene>
       </Router>

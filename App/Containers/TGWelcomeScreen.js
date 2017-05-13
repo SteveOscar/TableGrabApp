@@ -5,8 +5,7 @@ import {
   View,
   ScrollView,
   Text,
-  Image,
-  LayoutAnimation
+  Image
 } from 'react-native'
 import { connect } from 'react-redux'
 import Styles from './Styles/TGWelcomeScreenStyle'
@@ -25,7 +24,7 @@ class LoginScreen extends React.Component {
     }
   }
 
-  constructor (props: LoginScreenProps) {
+  constructor (props) {
     super(props)
     this.state = {
       visibleHeight: Metrics.screenHeight,
@@ -57,9 +56,9 @@ class LoginScreen extends React.Component {
     )
   }
 
-  renderErrors() {
+  renderErrors () {
     const { error } = this.props
-    if(error) {
+    if (error) {
       console.log('ERROR: ', error)
       return error
     } else {

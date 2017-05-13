@@ -1,7 +1,7 @@
 // @flow
 
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles, Colors, Metrics } from '../../Themes/'
+import { ApplicationStyles, Colors } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -15,6 +15,6 @@ export default StyleSheet.create({
   },
   welcomeSection: {
     margin: 2,
-    padding: 5,
-  },
+    padding: 5
+  }
 })
