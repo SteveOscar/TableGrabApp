@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   ScrollView,
@@ -18,13 +18,13 @@ import SignUpActions from '../Redux/TGSignUpRedux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import I18n from 'react-native-i18n'
 
-type UserSignUpScreenProps = {
-  dispatch: () => any,
-  fetching: boolean,
-  attemptUserSignUp: () => void
-}
-
 class UserSignUpScreen extends React.Component {
+  static propTypes = {
+    dispatch: PropTypes.func,
+    fetching: PropTypes.bool,
+    attemptUserSignUp: PropTypes.func
+  }
+
   state: {
     email: string,
     password: string,
@@ -39,7 +39,7 @@ class UserSignUpScreen extends React.Component {
   keyboardDidShowListener: Object
   keyboardDidHideListener: Object
 
-  constructor (props: UserSignUpScreenProps) {
+  constructor (props) {
     super(props)
     this.state = {
       email: '',
@@ -242,6 +242,7 @@ class UserSignUpScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  debugger
   // TODO: Line 238 should be state.signUp.fetching ??
   return {
     fetching: false
