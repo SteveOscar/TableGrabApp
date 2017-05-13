@@ -3,8 +3,10 @@ import { Scene, Router } from 'react-native-router-flux'
 import Styles from './Styles/NavigationContainerStyles'
 import NavigationDrawer from './NavigationDrawer'
 import NavItems from './NavItems'
+
 import TGWelcomeScreen from '../Containers/TGWelcomeScreen'
 import TGSignUpTypeScreen from '../Containers/TGSignUpTypeScreen'
+import TGUserSignUpScreen from '../Containers/TGUserSignUpScreen'
 
 // screens identified by the router
 import LaunchScreen from '../Containers/LaunchScreen'
@@ -22,6 +24,7 @@ class NavigationRouter extends Component {
             <Scene key='launchScreen' component={LaunchScreen} title='LaunchScreen' />
             <Scene initial key='welcomeScreen' component={TGWelcomeScreen} title='Welcome' renderLeftButton={NavItems.hamburgerButton} type='reset' />
             <Scene key='signUpType' component={TGSignUpTypeScreen} title='Account Type' />
+            <Scene key='userSignUpScreen' component={TGUserSignUpScreen} title='Create User Account' />
           </Scene>
         </Scene>
       </Router>
