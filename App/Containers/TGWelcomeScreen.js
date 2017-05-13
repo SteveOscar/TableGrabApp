@@ -86,7 +86,6 @@ class LoginScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  // note to test linting
   return {
     loggedIn: isLoggedIn(state.login),
     error: state.login.error
