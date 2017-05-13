@@ -12,7 +12,6 @@ import Styles from './Styles/TGWelcomeScreenStyle'
 import {Images, Metrics} from '../Themes'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import LoginActions, { isLoggedIn } from '../Redux/LoginRedux'
-import I18n from 'react-native-i18n'
 
 import RoundedButton from '../Components/RoundedButton'
 
@@ -33,23 +32,19 @@ class LoginScreen extends React.Component {
   }
 
   render () {
-    const { loggedIn } = this.props
     return (
       <ScrollView contentContainerStyle={{justifyContent: 'center'}} style={[Styles.container, {height: this.state.visibleHeight}]} keyboardShouldPersistTaps='always'>
         <Image source={Images.logo} style={[Styles.topLogo, this.state.topLogo]} />
         <View style={Styles.welcomeSection}>
           <Text style={Styles.lightSectionText}>
-            Welcome to TableGrab
-          </Text>
-          <Text style={Styles.errorText}>
-            {this.renderErrors()}
+            Which kind of account?
           </Text>
         </View>
         <View style={Styles.welcomeSection}>
-          {loggedIn ? this.renderLogoutButton() : this.renderLoginButton()}
+          <RoundedButton onPress={NavigationActions.userSignUpScreen}>User</RoundedButton>
         </View>
         <View style={Styles.welcomeSection}>
-          <RoundedButton onPress={NavigationActions.signUpType}>Sign Up</RoundedButton>
+          <RoundedButton onPress={NavigationActions.restaurantSignUpScreen}>Restaurant</RoundedButton>
         </View>
 
       </ScrollView>
@@ -59,27 +54,10 @@ class LoginScreen extends React.Component {
   renderErrors () {
     const { error } = this.props
     if (error) {
-      console.log('ERROR: ', error)
-      return error
+      return 'Login Failed'
     } else {
       return null
     }
-  }
-
-  renderLoginButton () {
-    return (
-      <RoundedButton onPress={NavigationActions.login}>
-        {I18n.t('signIn')}
-      </RoundedButton>
-    )
-  }
-
-  renderLogoutButton () {
-    return (
-      <RoundedButton onPress={this.props.logout}>
-        {I18n.t('logOut')}
-      </RoundedButton>
-    )
   }
 
 }

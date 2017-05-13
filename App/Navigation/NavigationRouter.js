@@ -4,6 +4,7 @@ import Styles from './Styles/NavigationContainerStyles'
 import NavigationDrawer from './NavigationDrawer'
 import NavItems from './NavItems'
 import TGWelcomeScreen from '../Containers/TGWelcomeScreen'
+import TGSignUpTypeScreen from '../Containers/TGSignUpTypeScreen'
 
 // screens identified by the router
 import LaunchScreen from '../Containers/LaunchScreen'
@@ -20,6 +21,7 @@ class NavigationRouter extends Component {
           <Scene key='drawerChildrenWrapper' navigationBarStyle={Styles.navBar} titleStyle={Styles.title} leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
             <Scene key='launchScreen' component={LaunchScreen} title='LaunchScreen' />
             <Scene initial key='welcomeScreen' component={TGWelcomeScreen} title='Welcome' renderLeftButton={NavItems.hamburgerButton} type='reset' />
+            <Scene key='signUpType' component={TGSignUpTypeScreen} title='Account Type' />
           </Scene>
         </Scene>
       </Router>
