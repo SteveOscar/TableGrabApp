@@ -36,7 +36,8 @@ const create = (baseURL = 'http://localhost:3000') => {
 
   return {
     login,
-    signUp
+    signUp,
+    getUserData
   }
 }
 
