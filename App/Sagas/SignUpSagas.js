@@ -24,8 +24,8 @@ export function * signUp (api, action) {
   } else {
     // dispatch successful signs up
     const response = yield call(api.signUp, payload)
-    debugger
     if (response.ok) {
+      debugger
       try {
         console.log('Sign Up Successful: ', response.data.status)
       } catch (error) {
@@ -33,7 +33,8 @@ export function * signUp (api, action) {
       }
       yield put(SignUpActions.signUpSuccess(response.data.status))
     } else {
-      yield put(SignUpActions.signUpFailure(response.data.errors))
+      const issue = response.data ? response.data : response.problem
+      yield put(SignUpActions.signUpFailure(issue))
     }
   }
 }

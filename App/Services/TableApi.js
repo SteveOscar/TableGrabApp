@@ -24,8 +24,6 @@ const create = (baseURL = 'http://localhost:3000') => {
     api.addMonitor(console.tron.apisauce)
   }
 
-  console.log('IN TABLE API!!!')
-  debugger
   const login = (email, password) => api.post('users/login', { email: email, password: password, password_confirmation: password })
 
   const signUp = (payload) => api.post('users', { user: payload })
