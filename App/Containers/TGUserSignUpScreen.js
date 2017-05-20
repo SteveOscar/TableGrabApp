@@ -146,9 +146,6 @@ class UserSignUpScreen extends React.Component {
         <Text style={GlobalStyles.lightSectionText} >
           New User Sign Up
         </Text>
-        <Text style={Styles.errorText}>
-          {this.renderErrors()}
-        </Text>
         <View style={Styles.form}>
           <View style={Styles.row}>
             <Text style={Styles.rowLabel}>Full Name</Text>
@@ -234,6 +231,9 @@ class UserSignUpScreen extends React.Component {
             </TouchableOpacity>
           </View>
         </View>
+        <Text style={Styles.errorText}>
+          {this.renderErrors()}
+        </Text>
 
       </ScrollView>
     )
@@ -242,13 +242,11 @@ class UserSignUpScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  debugger
   // TODO: Line 238 should be state.signUp.fetching ??
   return {
-    fetching: false
-    // TODO: why is this breaking?
-    // error: state.signUp.error,
-    // message: state.signUp.message
+    fetching: false,
+    error: state.signUp.error,
+    message: state.signUp.message
   }
 }
 

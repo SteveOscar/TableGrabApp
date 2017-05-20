@@ -55,5 +55,9 @@ export default StyleSheet.create({
   },
   linkText: {
     color: 'white'
+  },
+  errorText: {
+    textAlign: 'center',
+    color: Colors.fire
   }
 })

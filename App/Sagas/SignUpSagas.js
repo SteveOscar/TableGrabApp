@@ -16,7 +16,6 @@ import { AsyncStorage } from 'react-native'
 // attempts to sign up
 export function * signUp (api, action) {
   const { payload } = action
-  console.log('IN TGSignUpSaga!!')
   if (payload.password === '') {
     // dispatch failure
     yield put(SignUpActions.signUpFailure(['Password Required']))

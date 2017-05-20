@@ -15,7 +15,7 @@ import LoginActions, { isLoggedIn } from '../Redux/LoginRedux'
 
 import RoundedButton from '../Components/RoundedButton'
 
-class LoginScreen extends React.Component {
+class SignUpTypeScreen extends React.Component {
   state: {
     visibleHeight: number,
     topLogo: {
@@ -75,4 +75,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpTypeScreen)
