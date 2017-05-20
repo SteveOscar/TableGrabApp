@@ -13,8 +13,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import Styles from './Styles/LoginScreenStyle'
-import { ApplicationStyles } from '../Themes'
-import {Images, Metrics} from '../Themes'
+import { ApplicationStyles, Images, Metrics } from '../Themes'
 import LoginActions from '../Redux/LoginRedux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import I18n from 'react-native-i18n'
@@ -59,7 +58,7 @@ class TGLoginScreen extends React.Component {
     this.forceUpdate()
     // Did the login attempt complete?
     if (this.isAttempting && !newProps.fetching) {
-      if(!newProps.error) {
+      if (!newProps.error) {
         // Login successful, show user screen
         NavigationActions.userscreen()
       } else {
@@ -186,7 +185,7 @@ class TGLoginScreen extends React.Component {
 const mapStateToProps = (state) => {
   return {
     fetching: state.login.fetching,
-    error: state.login.error,
+    error: state.login.error
   }
 }
 

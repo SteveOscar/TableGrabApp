@@ -19,7 +19,7 @@ export function * signUp (api, action) {
   if (payload.password === '') {
     // dispatch failure
     yield put(SignUpActions.signUpFailure(['Password Required']))
-  } else if(payload.name === '') {
+  } else if (payload.name === '') {
     yield put(SignUpActions.signUpFailure(['Name Required']))
   } else {
     // dispatch successful signs up

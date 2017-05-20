@@ -80,12 +80,12 @@ const ApplicationStyles = {
     textAlign: 'center'
   },
   linkText: {
-  color: Colors.bloodOrange,
-  marginVertical: Metrics.smallMargin,
-  textAlign: 'center',
-  // fontWeight: 'bold',
-  textDecorationLine: 'underline'
-},
+    color: Colors.bloodOrange,
+    marginVertical: Metrics.smallMargin,
+    textAlign: 'center',
+    // fontWeight: 'bold',
+    textDecorationLine: 'underline'
+  }
 }
 
 export default ApplicationStyles

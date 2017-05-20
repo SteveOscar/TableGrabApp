@@ -5,13 +5,11 @@ import {
   View,
   ScrollView,
   Text,
-  Image,
-  LayoutAnimation
+  Image
 } from 'react-native'
 import { connect } from 'react-redux'
 import Styles from './Styles/TGWelcomeScreenStyle'
-import { ApplicationStyles } from '../Themes'
-import {Images, Metrics} from '../Themes'
+import { ApplicationStyles, Images, Metrics } from '../Themes'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import LoginActions, { isLoggedIn } from '../Redux/LoginRedux'
 import I18n from 'react-native-i18n'
@@ -26,7 +24,7 @@ class SignUpConfirmationScreen extends React.Component {
     }
   }
 
-  constructor (props: SignUpConfirmationScreenProps) {
+  constructor (props) {
     super(props)
     this.state = {
       visibleHeight: Metrics.screenHeight,
@@ -59,7 +57,7 @@ class SignUpConfirmationScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    loggedIn: isLoggedIn(state.login),
+    loggedIn: isLoggedIn(state.login)
   }
 }
 
