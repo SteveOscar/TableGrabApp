@@ -12,7 +12,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import Styles from './Styles/TGUserSignUpScreenStyle'
-import GlobalStyles from './Styles/AllComponentsScreenStyle'
+import { ApplicationStyles } from '../Themes'
 import { Metrics } from '../Themes'
 import SignUpActions from '../Redux/TGSignUpRedux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
@@ -144,7 +144,7 @@ class UserSignUpScreen extends React.Component {
     const textInputStyle = editable ? Styles.textInput : Styles.textInputReadonly
     return (
       <ScrollView contentContainerStyle={{justifyContent: 'center'}} style={[Styles.container, {height: this.state.visibleHeight}]} keyboardShouldPersistTaps='always'>
-        <Text style={GlobalStyles.lightSectionText} >
+        <Text style={ApplicationStyles.lightNotice} >
           New User Sign Up
         </Text>
         <View style={Styles.form}>
