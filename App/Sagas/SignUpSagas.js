@@ -11,7 +11,6 @@
 *************************************************************/
 import { call, put } from 'redux-saga/effects'
 import SignUpActions from '../Redux/TGSignUpRedux'
-import { AsyncStorage } from 'react-native'
 
 // attempts to sign up
 export function * signUp (api, action) {
