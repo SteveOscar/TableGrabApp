@@ -57,7 +57,7 @@ class UserSignUpScreen extends React.Component {
     this.forceUpdate()
     // Did the signUp attempt complete?
     if (this.isAttempting && !newProps.fetching) {
-      if (newProps.error.length) {
+      if (newProps.error && newProps.error.length) {
         const error = Array.isArray(newProps.error) ? newProps.error[0] : newProps.error
         console.log('ERROR: ', error)
         this.setState({ error: error })

@@ -25,7 +25,6 @@ export function * signUp (api, action) {
     // dispatch successful signs up
     const response = yield call(api.signUp, payload)
     if (response.ok) {
-      debugger
       try {
         console.log('Sign Up Successful: ', response.data.status)
       } catch (error) {
