@@ -78,7 +78,14 @@ const ApplicationStyles = {
   lightNotice: {
     color: 'white',
     textAlign: 'center'
-  }
+  },
+  linkText: {
+  color: Colors.bloodOrange,
+  marginVertical: Metrics.smallMargin,
+  textAlign: 'center',
+  // fontWeight: 'bold',
+  textDecorationLine: 'underline'
+},
 }
 
 export default ApplicationStyles
