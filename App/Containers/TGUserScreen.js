@@ -5,15 +5,13 @@ import {
   View,
   ScrollView,
   Text,
-  Image,
-  LayoutAnimation
+  Image
 } from 'react-native'
 import { connect } from 'react-redux'
 import Styles from './Styles/TGWelcomeScreenStyle'
 import {Images, Metrics, ApplicationStyles} from '../Themes'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import LoginActions, { isLoggedIn } from '../Redux/LoginRedux'
-import I18n from 'react-native-i18n'
 
 import RoundedButton from '../Components/RoundedButton'
 
@@ -25,7 +23,7 @@ class LoginScreen extends React.Component {
     }
   }
 
-  constructor (props: LoginScreenProps) {
+  constructor (props) {
     super(props)
     this.state = {
       visibleHeight: Metrics.screenHeight,
@@ -77,6 +75,7 @@ class LoginScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   const user = state.login.user
+  debugger
   return {
     loggedIn: isLoggedIn(state.login),
     user: { id: user.id, email: user.email }

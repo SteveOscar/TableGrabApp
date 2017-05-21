@@ -9,6 +9,7 @@ import TGSignUpTypeScreen from '../Containers/TGSignUpTypeScreen'
 import TGUserSignUpScreen from '../Containers/TGUserSignUpScreen'
 import TGSignUpConfirmationScreen from '../Containers/TGSignUpConfirmationScreen'
 import TGLoginScreen from '../Containers/TGLoginScreen'
+import TGUserScreen from '../Containers/TGUserScreen'
 
 // screens identified by the router
 import LaunchScreen from '../Containers/LaunchScreen'
@@ -29,6 +30,7 @@ class NavigationRouter extends Component {
             <Scene key='userSignUpScreen' component={TGUserSignUpScreen} title='Create User Account' />
             <Scene key='signUpConfirmation' component={TGSignUpConfirmationScreen} title='Sign Up Confirmation' renderLeftButton={NavItems.hamburgerButton} />
             <Scene key='login' component={TGLoginScreen} title='Login' />
+            <Scene key='userscreen' component={TGUserScreen} title='User Screen' renderLeftButton={NavItems.hamburgerButton} type="reset"/>
 
           </Scene>
         </Scene>
