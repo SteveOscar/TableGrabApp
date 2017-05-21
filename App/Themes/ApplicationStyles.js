@@ -85,6 +85,10 @@ const ApplicationStyles = {
     textAlign: 'center',
     // fontWeight: 'bold',
     textDecorationLine: 'underline'
+  },
+  topLogo: {
+    alignSelf: 'center',
+    resizeMode: 'contain'
   }
 }
 
