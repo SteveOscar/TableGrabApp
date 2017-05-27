@@ -48,7 +48,7 @@ class LoginScreen extends React.Component {
           {loggedIn ? this.renderLogoutButton() : this.renderLoginButton()}
         </View>
         <View style={Styles.welcomeSection}>
-          <RoundedButton onPress={NavigationActions.presentationScreen}>SOME BUTTON</RoundedButton>
+          <RoundedButton onPress={NavigationActions.tableList}>Browse Tables</RoundedButton>
         </View>
 
       </ScrollView>
@@ -75,7 +75,6 @@ class LoginScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   const user = state.login.user
-  debugger
   return {
     loggedIn: isLoggedIn(state.login),
     user: { id: user.id, email: user.email }
