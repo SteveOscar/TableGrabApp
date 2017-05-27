@@ -86,6 +86,13 @@ const ApplicationStyles = {
     // fontWeight: 'bold',
     textDecorationLine: 'underline'
   },
+  linkTextWhite: {
+    color: Colors.snow,
+    marginVertical: Metrics.smallMargin,
+    textAlign: 'center',
+    // fontWeight: 'bold',
+    textDecorationLine: 'underline'
+  },
   topLogo: {
     alignSelf: 'center',
     resizeMode: 'contain'

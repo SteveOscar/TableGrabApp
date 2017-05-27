@@ -63,7 +63,9 @@ class TGLoginScreen extends React.Component {
         NavigationActions.userscreen()
       } else {
         // Login error, surface errors
-        NavigationActions.welcomeScreen()
+        const error = Array.isArray(newProps.error) ? newProps.error[0] : newProps.error
+        console.log('ERROR: ', error)
+        this.setState({ error: error })
       }
     }
   }
@@ -112,6 +114,16 @@ class TGLoginScreen extends React.Component {
 
   handleChangePassword = (text) => {
     this.setState({ password: text })
+  }
+
+  renderErrors () {
+    const { error } = this.state
+    if (error) {
+      console.log('ERROR: ', error)
+      return error
+    } else {
+      return null
+    }
   }
 
   render () {
@@ -172,10 +184,13 @@ class TGLoginScreen extends React.Component {
           </View>
         </View>
 
-        <Text style={ApplicationStyles.linkText} onPress={NavigationActions.restaurantLogIn}>
+        <Text style={ApplicationStyles.linkTextWhite} onPress={NavigationActions.restaurantLogIn}>
           Restaurant Log In
         </Text>
 
+        <Text style={Styles.errorText}>
+          {this.renderErrors()}
+        </Text>
       </ScrollView>
     )
   }
