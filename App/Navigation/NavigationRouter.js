@@ -33,7 +33,7 @@ class NavigationRouter extends Component {
             <Scene key='login' component={TGLoginScreen} title='Login' />
             <Scene key='userscreen' component={TGUserScreen} title='User Screen' renderLeftButton={NavItems.hamburgerButton} type="reset"/>
 
-            <Scene key='tableList' component={TableList} title='User Screen' renderLeftButton={NavItems.hamburgerButton} type="reset"/>
+            <Scene key='tableList' component={TableList} title='The Options...' renderLeftButton={NavItems.hamburgerButton} type="reset"/>
 
           </Scene>
         </Scene>

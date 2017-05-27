@@ -9,6 +9,7 @@ import DebugConfig from '../Config/DebugConfig'
 import { StartupTypes } from '../Redux/StartupRedux'
 import { GithubTypes } from '../Redux/GithubRedux'
 import { LoginTypes } from '../Redux/LoginRedux'
+import { TablesTypes } from '../Redux/TablesRedux'
 import { SignUpTypes } from '../Redux/TGSignUpRedux'
 import { OpenScreenTypes } from '../Redux/OpenScreenRedux'
 
@@ -16,6 +17,7 @@ import { OpenScreenTypes } from '../Redux/OpenScreenRedux'
 
 import { startup } from './StartupSagas'
 import { login } from './LoginSagas'
+import { getTables } from './TablesSagas'
 import { signUp } from './SignUpSagas'
 import { getUserAvatar } from './GithubSagas'
 import { openScreen } from './OpenScreenSagas'
@@ -33,6 +35,7 @@ export default function * root () {
     // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
     takeLatest(LoginTypes.LOGIN_REQUEST, login, api),
+    takeLatest(TablesTypes.TABLES_REQUEST, getTables, api),
     takeLatest(SignUpTypes.SIGN_UP_REQUEST, signUp, api),
     takeLatest(OpenScreenTypes.OPEN_SCREEN, openScreen),
 
