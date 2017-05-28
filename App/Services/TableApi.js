@@ -32,10 +32,15 @@ const create = (baseURL = 'http://localhost:3000') => {
     api.post('users/login', { email: email, password: password })
   }
 
+  const fetchTables = (token, id) => {
+    api.post('tables', { token: token, id: id })
+  }
+
   return {
     login,
     signUp,
-    getUserData
+    getUserData,
+    fetchTables
   }
 }
 

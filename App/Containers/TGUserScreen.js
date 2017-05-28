@@ -12,10 +12,17 @@ import Styles from './Styles/TGWelcomeScreenStyle'
 import {Images, Metrics, ApplicationStyles} from '../Themes'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import LoginActions, { isLoggedIn } from '../Redux/LoginRedux'
+import TablesActions from '../Redux/TablesRedux'
 
 import RoundedButton from '../Components/RoundedButton'
 
-class LoginScreen extends React.Component {
+type UserScreenProps = {
+  dispatch: () => any,
+  fetching: boolean,
+  fetchTables: () => void
+}
+
+class UserScreen extends React.Component {
   state: {
     visibleHeight: number,
     topLogo: {
@@ -77,14 +84,16 @@ const mapStateToProps = (state) => {
   const user = state.login.user
   return {
     loggedIn: isLoggedIn(state.login),
-    user: { id: user.id, email: user.email }
+    user: { id: user.id, email: user.email },
+    fetching: state.tables.fetching
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => dispatch(LoginActions.logout())
+    logout: () => dispatch(LoginActions.logout()),
+    fetchTables: (token, id) => dispatch(TablesActions.tablesRequest(token, id))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(UserScreen)
