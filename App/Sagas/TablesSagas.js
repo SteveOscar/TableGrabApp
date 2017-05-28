@@ -14,10 +14,10 @@ import { call, put } from 'redux-saga/effects'
 import TablesActions from '../Redux/TablesRedux'
 
 export function * getTables (api, action) {
-  const { data } = action
+  const { payload } = action
   // make the call to the api
   debugger
-  const response = yield call(api.gettables, data)
+  const response = yield call(api.gettables, payload)
 
   // success?
   if (response.ok) {

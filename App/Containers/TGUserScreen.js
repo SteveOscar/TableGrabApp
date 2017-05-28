@@ -5,7 +5,8 @@ import {
   View,
   ScrollView,
   Text,
-  Image
+  Image,
+  AsyncStorage
 } from 'react-native'
 import { connect } from 'react-redux'
 import Styles from './Styles/TGWelcomeScreenStyle'
@@ -19,7 +20,7 @@ import RoundedButton from '../Components/RoundedButton'
 type UserScreenProps = {
   dispatch: () => any,
   fetching: boolean,
-  fetchTables: () => void
+  getTables: () => void
 }
 
 class UserScreen extends React.Component {
@@ -55,7 +56,7 @@ class UserScreen extends React.Component {
           {loggedIn ? this.renderLogoutButton() : this.renderLoginButton()}
         </View>
         <View style={Styles.welcomeSection}>
-          <RoundedButton onPress={NavigationActions.tableList}>Browse Tables</RoundedButton>
+          <RoundedButton onPress={this.handlePressTables.bind(this)}>Browse Tables</RoundedButton>
         </View>
 
       </ScrollView>
@@ -78,6 +79,20 @@ class UserScreen extends React.Component {
     )
   }
 
+  async handlePressTables () {
+    const { user } = this.props
+    try {
+      const token = await AsyncStorage.getItem('auth_token')
+      if (token) {
+        this.isAttempting = true
+        // attempt to fetch tables - a saga is listening to pick it up from here.
+        this.props.getTables({token: token, id: user.id})
+      }
+    } catch (error) {
+      console.log('Asyn error: ', error)
+    }
+  }
+
 }
 
 const mapStateToProps = (state) => {
@@ -92,7 +107,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(LoginActions.logout()),
-    fetchTables: (token, id) => dispatch(TablesActions.tablesRequest(token, id))
+    getTables: (token, id) => dispatch(TablesActions.tablesRequest(token, id))
   }
 }
 
