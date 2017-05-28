@@ -8,7 +8,7 @@ import Immutable from 'seamless-immutable'
 const { Types, Creators } = createActions({
   tablesRequest: ['payload'],
   tablesSuccess: ['status'],
-  tablesFailure: ['error'],
+  tablesFailure: ['error']
 })
 
 export const TablesTypes = Types
@@ -36,14 +36,12 @@ export const success = (state: Object, { message }: Object) =>
 export const failure = (state: Object, { error }: Object) =>
   state.merge({ fetching: false, error })
 
-
-
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.TABLES_REQUEST]: request,
   [Types.TABLES_SUCCESS]: success,
-  [Types.TABLES_FAILURE]: failure,
+  [Types.TABLES_FAILURE]: failure
 })
 
 /* ------------- Selectors ------------- */

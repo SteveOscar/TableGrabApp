@@ -11,7 +11,7 @@ import { connect } from 'react-redux'
 import Styles from './Styles/TGWelcomeScreenStyle'
 import { ApplicationStyles, Images, Metrics } from '../Themes'
 import { Actions as NavigationActions } from 'react-native-router-flux'
-import LoginActions, { isLoggedIn } from '../Redux/LoginRedux'
+import { isLoggedIn } from '../Redux/LoginRedux'
 import I18n from 'react-native-i18n'
 
 import RoundedButton from '../Components/RoundedButton'
