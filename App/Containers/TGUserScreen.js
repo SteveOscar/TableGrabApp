@@ -40,13 +40,13 @@ class UserScreen extends React.Component {
   }
 
   render () {
-    const { loggedIn } = this.props
+    const { loggedIn, user } = this.props
     return (
       <ScrollView contentContainerStyle={{justifyContent: 'center'}} style={[Styles.container, {height: this.state.visibleHeight}]} keyboardShouldPersistTaps>
         <Image source={Images.logo} style={[ApplicationStyles.topLogo, this.state.topLogo]} />
         <View style={Styles.welcomeSection}>
           <Text style={ApplicationStyles.lightNotice}>
-            {this.props.user.email}
+            {user.email}
           </Text>
           <Text style={Styles.lightSectionText}>
             YOU HAVE LOGGED IN
@@ -72,21 +72,22 @@ class UserScreen extends React.Component {
   }
 
   renderLogoutButton () {
+    const { logout } = this.props
     return (
-      <RoundedButton onPress={this.props.logout}>
+      <RoundedButton onPress={logout}>
         Correct button
       </RoundedButton>
     )
   }
 
   async handlePressTables () {
-    const { user } = this.props
+    const { user, getTables } = this.props
     try {
       const token = await AsyncStorage.getItem('auth_token')
       if (token) {
         this.isAttempting = true
         // attempt to fetch tables - a saga is listening to pick it up from here.
-        this.props.getTables({token: token, id: user.id})
+        getTables({token: token, id: user.id})
       }
     } catch (error) {
       console.log('Asyn error: ', error)

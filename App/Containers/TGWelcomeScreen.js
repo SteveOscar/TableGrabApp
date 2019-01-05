@@ -75,8 +75,9 @@ class LoginScreen extends React.Component {
   }
 
   renderLogoutButton () {
+    const { logout } = this.props
     return (
-      <RoundedButton onPress={this.props.logout}>
+      <RoundedButton onPress={logout}>
         {I18n.t('logOut')}
       </RoundedButton>
     )

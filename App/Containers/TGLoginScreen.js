@@ -103,9 +103,10 @@ class TGLoginScreen extends React.Component {
 
   handlePressLogin = () => {
     const { email, password } = this.state
+    const { attemptLogin } = this.props
     this.isAttempting = true
     // attempt a login - a saga is listening to pick it up from here.
-    this.props.attemptLogin(email, password)
+    attemptLogin(email, password)
   }
 
   handleChangeUsername = (text) => {

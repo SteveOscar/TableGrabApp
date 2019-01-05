@@ -13,12 +13,13 @@ export default class AlertMessage extends React.Component {
   }
 
   render () {
+    const { show, style } = this.props
     let messageComponent = null
-    if (this.props.show) {
+    if (show) {
       const { title } = this.props
       return (
         <View
-          style={[styles.container, this.props.style]}
+          style={[styles.container, style]}
         >
           <View style={styles.contentContainer}>
             <Text allowFontScaling={false} style={styles.message}>{title && title.toUpperCase()}</Text>
